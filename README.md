@@ -1,2 +1,2 @@
 # taipei-fireworks
-Trying out paper.js and animations.
+Trying out Node.js, Express.js, Jade, Paper.js, and animations.
