@@ -4,7 +4,7 @@ Trying out Node.js, Express.js, Jade, Processing.js, and animations.
 ## Running the project
 * git clone (repository url)
 * Install Node.js
-* Install Node package nodemon
+* Install Node package nodemon with command `npm install nodemon -g`
 * From the command line:
   * To get a localhost going, type command `nodemon bin/www`, then go to any localhost number on your browser. I use `localhost: 3000`
 
