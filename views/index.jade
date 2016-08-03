@@ -4,5 +4,5 @@ block content
   h1="Taipei Fireworks"
   p work work work
   p where does this go
-  canvas(id="draw", resize="true")
-  script(type="text/paperscript", src="javascripts/main.js", canvas="draw")
+  canvas(data-processing-sources="draw.pde" id="sketch")
+  script(src="javascripts/processing.min.js")
