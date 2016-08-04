@@ -1,20 +1,29 @@
-PFont zigBlack;
+String letters = "";
+int back = 102;
 
 void setup() {
   size(100, 100);
-  zigBlack = createFont("Ziggurat-Black", 32);
-  textFont(zigBlack);
-  fill(0);
+  textSize(16);
+  textAlign(CENTER);
 }
 
 void draw() {
-String lines = "L1 L2 L3";
-textSize(12);
-fill(0);
-textLeading(10);
-text(lines, 10, 15, 30, 100);
-textLeading(20);
-text(lines, 40, 15, 30, 100);
-textLeading(30);
-text(lines, 70, 15, 30, 100);
+  background(back);
+  text(letters, 50, 50);
+}
+
+void keyPressed() {
+  if ((key == ENTER) || (key == RETURN)) {
+    letters = letters.toLowerCase();
+    println(letters); // Print to console to see input
+    if (letters.equals("black")) {
+      back = 0;
+    } else if (letters.equals("gray")) {
+      back = 204;
+    }
+    letters = ""; // Clear the variable
+  } else if ((key > 'a') && (key != CODED)) {
+    // If the key is alphanumeric, add it to the String
+    letters = letters + key;
+  }
 }
