@@ -1,15 +1,35 @@
-Tier myTier;
+
+Taipei101 myTaipei101;
 
 void setup() {
   size(500,500);
   // Parameters go inside the parentheses when the object is constructed.
-  myTier = new Tier(color(0), 250, 250, 100, 10, 80);
+  myTaipei101 = new Taipei101(250, 250);
 }
 
 void draw() {
   background(230);
-  myTier.display();
+  myTaipei101.display();
+}
 
+class Taipei101 {
+  Tier[] tiers = new Tier[8];
+  float xpos;
+  float ypos;
+
+  Taipei101 (float m_x, float m_y) {
+    xpos = m_x;
+    ypos = m_y;
+  }
+
+  void display(){
+    float difference = 0;
+    for (int i = 0; i < 8; i++) {
+      tiers[i] = new Tier(color(0), xpos, ypos + difference, 50, 5, 30);
+      tiers[i].display();
+      difference += 30;
+    }
+  }
 }
 
 // Tier class to create the seven tiers of Taipei 101
