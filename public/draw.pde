@@ -1,16 +1,20 @@
+PFont zigBlack;
+
 void setup() {
-  size(500, 500);
-  background(100);
-  stroke(0);
+  size(100, 100);
+  zigBlack = createFont("Ziggurat-Black", 32);
+  textFont(zigBlack);
+  fill(0);
 }
 
 void draw() {
-  float angle = 0;
-  if (keyPressed == true) {
-    if ((key >= 32) && (key <= 126)) {
-      angle = (key - 32) * 3;
-    }
-  }
-
-  arc(50, 50, 66, 66, 0, radians(angle));
+String lines = "L1 L2 L3";
+textSize(12);
+fill(0);
+textLeading(10);
+text(lines, 10, 15, 30, 100);
+textLeading(20);
+text(lines, 40, 15, 30, 100);
+textLeading(30);
+text(lines, 70, 15, 30, 100);
 }
