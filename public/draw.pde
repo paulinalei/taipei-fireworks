@@ -1,29 +1,35 @@
-String letters = "";
-int back = 102;
+Tier myTier;
 
 void setup() {
-  size(100, 100);
-  textSize(16);
-  textAlign(CENTER);
+  size(500,500);
+  // Parameters go inside the parentheses when the object is constructed.
+  myTier = new Tier(color(0), 250, 250, 50);
 }
 
 void draw() {
-  background(back);
-  text(letters, 50, 50);
+  background(230);
+  myTier.display();
+
 }
 
-void keyPressed() {
-  if ((key == ENTER) || (key == RETURN)) {
-    letters = letters.toLowerCase();
-    println(letters); // Print to console to see input
-    if (letters.equals("black")) {
-      back = 0;
-    } else if (letters.equals("gray")) {
-      back = 204;
-    }
-    letters = ""; // Clear the variable
-  } else if ((key > 'a') && (key != CODED)) {
-    // If the key is alphanumeric, add it to the String
-    letters = letters + key;
+// Tier class to create the seven tiers of Taipei 101
+class Tier {
+  color c;
+  float xpos;
+  float ypos;
+  float size;
+
+  // The Constructor is defined with arguments.
+  Tier (color m_color, float m_x, float m_y, float m_size) {
+    c = m_color;
+    xpos = m_x;
+    ypos = m_y;
+    size = m_size;
+  }
+
+  void display() {
+    noStroke();
+    fill(c);
+    quad(xpos, ypos, xpos + 50, ypos, xpos + 45, ypos + 50, xpos + 5, ypos + 50);
   }
 }
