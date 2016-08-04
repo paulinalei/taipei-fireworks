@@ -1,20 +1,14 @@
 
 Building myTaipei101;
-Base myBase;
 
 void setup() {
   size(500,500);
-  // Parameters go inside the parentheses when the object is constructed.
-    myTaipei101 = new Building(color(0), 50, 50);
-    myBase = new Base(color(0), 35, 240, 40, 10, 80);
+  myTaipei101 = new Building(color(0), 50, 50);
 }
 
 void draw() {
   background(230);
   myTaipei101.drawBuilding();
-//  myBase.display();
-
-
 }
 
 // Building class to draw the full Taipei101
@@ -41,7 +35,7 @@ class Building {
 
     // xpos + #, # must always match second to last parameter in Tier
     bottomBase = new Base(c, xpos + 5, ypos + difference, 40, 10, 80);
-    bottomBase.display();
+    bottomBase.drawBase();
   }
 }
 
@@ -88,7 +82,7 @@ class Base {
     height = m_height;
   }
 
-  void display() {
+  void drawBase() {
     noStroke();
     fill(c);
     quad(xpos, ypos, xpos + topwidth, ypos, xpos + topwidth + bottomdiff, ypos + height, xpos - bottomdiff, ypos + height);
