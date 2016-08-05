@@ -8,7 +8,7 @@ float TOP_TOTAL_HEIGHT = TOP_HEIGHT + (TOP_HEIGHT / 4) + (1.5*(TOP_HEIGHT/4)) + 
 float TIER_TOPWIDTH = 50;
 float TIER_BOTTOMDIFF = 5; // difference on each side of the bottom width from top width
 float TIER_HEIGHT = 30;
-float BASE_TOPWIDTH = 40; // must equal to TIER_TOPWIDTH - (2*BOTTOMDIFF)
+float BASE_TOPWIDTH = 40; // must equal to TIER_TOPWIDTH - (2*TIER_BOTTOMDIFF)
 float BASE_BOTTOMDIFF = 10;
 float BASE_HEIGHT = 80;
 
@@ -16,7 +16,7 @@ Building myTaipei101;
 
 void setup() {
   size(500,500);
-  myTaipei101 = new Building(color(0), 150, 150);
+  myTaipei101 = new Building(color(0), 440, 180);
 }
 
 void draw() {
@@ -39,7 +39,6 @@ class Building {
     ypos = m_y;
   }
 
-  //all the numbers are hardcoded in, maybe turn them into global variables so you don't have to do the math
   void drawBuilding(){
     float difference = 0;
     for (int i = 0; i < 8; i++) {
