@@ -1,3 +1,17 @@
+/*
+* GLOBAL CONSTANTS
+* Change these variables to change size of Taipei 101
+*/
+float TOP_BOTTOMDIFF = 3; // determines the length of half of the triangle on the top
+float TOP_HEIGHT = 50;
+float TOP_TOTAL_HEIGHT = TOP_HEIGHT + (TOP_HEIGHT / 4) + (1.5*(TOP_HEIGHT/4)) + ((TOP_HEIGHT/4)/2); // total height of the top part of the building
+float TIER_TOPWIDTH = 50;
+float TIER_BOTTOMDIFF = 5; // difference on each side of the bottom width from top width
+float TIER_HEIGHT = 30;
+float BASE_TOPWIDTH = 40; // must equal to TIER_TOPWIDTH - (2*BOTTOMDIFF)
+float BASE_BOTTOMDIFF = 10;
+float BASE_HEIGHT = 80;
+
 Building myTaipei101;
 
 void setup() {
@@ -29,15 +43,15 @@ class Building {
   void drawBuilding(){
     float difference = 0;
     for (int i = 0; i < 8; i++) {
-      tiers[i] = new Tier(c, xpos, ypos + difference, 50, 5, 30);
+      tiers[i] = new Tier(c, xpos, ypos + difference, TIER_TOPWIDTH, TIER_BOTTOMDIFF, TIER_HEIGHT);
       tiers[i].drawTier();
-      difference += 30; // must always match last parameter of Tier
+      difference += TIER_HEIGHT; // difference is the same as each tier's height
     }
 
-    topPoint = new Top(c, xpos + 25, ypos - 87.5, 3, 50);
+    topPoint = new Top(c, xpos + (TIER_TOPWIDTH/2), ypos - TOP_TOTAL_HEIGHT, TOP_BOTTOMDIFF, TOP_HEIGHT);
     topPoint.drawTop();
     // xpos + #, # must always match second to last parameter in Tier
-    bottomBase = new Base(c, xpos + 5, ypos + difference, 40, 10, 80);
+    bottomBase = new Base(c, xpos + TIER_BOTTOMDIFF, ypos + difference, BASE_TOPWIDTH, BASE_BOTTOMDIFF, BASE_HEIGHT);
     bottomBase.drawBase();
   }
 }
