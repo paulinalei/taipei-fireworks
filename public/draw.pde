@@ -43,21 +43,28 @@ class Building {
 
 // Top class to create the top part of Taipei 101
 class Top {
+  Tier smallTier;
   color c;
   float xpos;
   float ypos;
   float bottomdiff;
   float height;
+  float tier_topwidth;
+  float tier_height;
 
   Top (color m_c, float m_x, float m_y, float m_bottomdiff, float m_height) {
     xpos = m_x;
     ypos = m_y;
     bottomdiff = m_bottomdiff;
     height = m_height;
+    tier_topwidth = 4*bottomdiff;
+    tier_height = height / 3;
   }
 
   void drawTop() {
     triangle(xpos, ypos, xpos + bottomdiff, ypos + height, xpos - bottomdiff, ypos + height);
+    smallTier = new Tier(c, xpos - (2*bottomdiff), ypos + height, tier_topwidth, bottomdiff, tier_height);
+    smallTier.drawTier();
   }
   //use smaller versions of Tier for the details of Top
 }
