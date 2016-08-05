@@ -6,7 +6,7 @@ Trying out Node.js, Express.js, Jade, Processing.js, and animations.
 * Install Node.js
 * Install Node package nodemon with command `npm install nodemon -g`
 * From the command line:
-  * To get a localhost going, type command `nodemon bin/www`, then go to any localhost number on your browser. I use `localhost: 3000`
+  * To get a localhost going, type command `nodemon bin/www`, then go to `localhost: 3000`
 
 ## How to set-up
 * Install Node.js
@@ -16,4 +16,4 @@ Trying out Node.js, Express.js, Jade, Processing.js, and animations.
   * cd into new folder then use command `npm install`
   * Install nodemon with command `npm install nodemon -g`
     * This will let you refresh when you make changes without having to restart the server
-  * Use command `nodemon bin/www` then go to any localhost, or just `localhost: 3000`
+  * Use command `nodemon bin/www` then go to `localhost: 3000`
