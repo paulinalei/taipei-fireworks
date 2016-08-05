@@ -3,21 +3,19 @@ Base smallBase;
 Top mytop;
 void setup() {
   size(500,500);
-  myTaipei101 = new Building(color(0), 50, 50);
-  mytop = new Top(color(0), 250, 250, 3, 50);
-
-
+  myTaipei101 = new Building(color(0), 150, 150);
 }
 
 void draw() {
   background(230);
   myTaipei101.drawBuilding();
-  mytop.drawTop();
+  //mytop.drawTop();
 }
 
 // Building class to draw the full Taipei 101
 class Building {
   Tier[] tiers = new Tier[8];
+  Top topPoint;
   Base bottomBase;
   color c;
   float xpos;
@@ -37,6 +35,8 @@ class Building {
       difference += 30; // must always match last parameter of Tier
     }
 
+    topPoint = new Top(c, xpos + 25, ypos - 87.5, 3, 50);
+    topPoint.drawTop();
     // xpos + #, # must always match second to last parameter in Tier
     bottomBase = new Base(c, xpos + 5, ypos + difference, 40, 10, 80);
     bottomBase.drawBase();
@@ -72,7 +72,7 @@ class Top {
     smallTier.drawTier();
     bigTier = new Tier(c, xpos - (2*bottomdiff), ypos + height + tier_height, tier_topwidth, bottomdiff, 1.5*tier_height);
     bigTier.drawTier();
-    smallBase = new Base(color(0), xpos - bottomdiff, ypos + height + tier_height + (1.5*tier_height), 2*bottomdiff, bottomdiff, (tier_height/2));
+    smallBase = new Base(color(0), xpos - bottomdiff, ypos + height + tier_height + (1.5*tier_height), 2*bottomdiff, 2*bottomdiff, (tier_height/2));
     smallBase.drawBase();
   }
 }
