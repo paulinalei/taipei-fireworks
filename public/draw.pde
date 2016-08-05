@@ -1,6 +1,5 @@
 Building myTaipei101;
-Base smallBase;
-Top mytop;
+
 void setup() {
   size(500,500);
   myTaipei101 = new Building(color(0), 150, 150);
@@ -9,7 +8,6 @@ void setup() {
 void draw() {
   background(230);
   myTaipei101.drawBuilding();
-  //mytop.drawTop();
 }
 
 // Building class to draw the full Taipei 101
@@ -27,6 +25,7 @@ class Building {
     ypos = m_y;
   }
 
+  //all the numbers are hardcoded in, maybe turn them into global variables so you don't have to do the math
   void drawBuilding(){
     float difference = 0;
     for (int i = 0; i < 8; i++) {
