@@ -1,10 +1,12 @@
-
 Building myTaipei101;
+Base smallBase;
 Top mytop;
 void setup() {
   size(500,500);
   myTaipei101 = new Building(color(0), 50, 50);
-  mytop = new Top(color(0), 10, 50, 3, 50);
+  mytop = new Top(color(0), 250, 250, 3, 50);
+
+
 }
 
 void draw() {
@@ -44,6 +46,8 @@ class Building {
 // Top class to create the top part of Taipei 101
 class Top {
   Tier smallTier;
+  Tier bigTier;
+  Base smallBase;
   color c;
   float xpos;
   float ypos;
@@ -58,15 +62,19 @@ class Top {
     bottomdiff = m_bottomdiff;
     height = m_height;
     tier_topwidth = 4*bottomdiff;
-    tier_height = height / 3;
+    tier_height = height / 4;
   }
 
   void drawTop() {
+    noStroke();
     triangle(xpos, ypos, xpos + bottomdiff, ypos + height, xpos - bottomdiff, ypos + height);
     smallTier = new Tier(c, xpos - (2*bottomdiff), ypos + height, tier_topwidth, bottomdiff, tier_height);
     smallTier.drawTier();
+    bigTier = new Tier(c, xpos - (2*bottomdiff), ypos + height + tier_height, tier_topwidth, bottomdiff, 1.5*tier_height);
+    bigTier.drawTier();
+    smallBase = new Base(color(0), xpos - bottomdiff, ypos + height + tier_height + (1.5*tier_height), 2*bottomdiff, bottomdiff, (tier_height/2));
+    smallBase.drawBase();
   }
-  //use smaller versions of Tier for the details of Top
 }
 
 // Tier class to create the seven tiers of Taipei 101
