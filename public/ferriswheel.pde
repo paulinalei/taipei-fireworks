@@ -1,18 +1,22 @@
 void setup() {
   size(500, 500);
-  background(240);
-
+  frameRate(4);
 }
 
+float angle = 0;
 void draw() {
-  //put a fill for the background color for the circle
-  strokeWeight(5);
+  background(240);
+  strokeWeight(3);
+  noFill(); //so you would just draw a circle
   ellipse(250, 250, 100, 100);
-  line(250, 200, 250, 300);
-  line(0, 0, 0, 100);
+  //line(250, 250, 250, 200); //12 o'clock line
+  angle += PI/6;
   pushMatrix();
-  translate(200, 250);
-  rotate(-PI/2);
-  line(0, 0, 0, 100);
+  translate(250, 250);
+  rotate(PI/2 + angle);
+  line(0, 0, 0, 50);
+  line(0, 0, 0, -50);
+  line(0, 0, 50, 0);
+  line(0, 0, -50, 0);
   popMatrix();
 }
