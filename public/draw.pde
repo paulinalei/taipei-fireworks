@@ -17,8 +17,10 @@ Building myTaipei101;
 void setup() {
   size(500,500);
   myTaipei101 = new Building(color(0), 440, 180);
+  frameRate(3);
 }
 
+float angle = 0;
 void draw() {
   background(230);
   myTaipei101.drawBuilding();

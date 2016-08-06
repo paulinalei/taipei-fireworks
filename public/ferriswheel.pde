@@ -1,15 +1,30 @@
+FerrisWheel myFerrisWheel;
 void setup() {
   size(500, 500);
   frameRate(3);
+  myFerrisWheel = new FerrisWheel(250, 250);
 }
 
 float angle = 0;
 void draw() {
   background(240);
+  myFerrisWheel.display();
+}
+
+class FerrisWheel {
+  color c;
+  float xpos;
+  float ypos;
+
+  FerrisWheel(float m_x, float m_y){
+    xpos = m_x;
+    ypos = m_y;
+  }
+
+  void display() {
   strokeWeight(3);
   noFill(); //so you would just draw a circle
-  ellipse(250, 250, 100, 100);
-  //line(250, 250, 250, 200); //12 o'clock line
+  ellipse(xpos, ypos, 100, 100);
   angle += PI/12;
   pushMatrix();
   translate(250, 250);
@@ -33,4 +48,5 @@ void draw() {
   line(0, 0, -50, 0);
   rect(-57, 0, 14, 14);
   popMatrix();
+  }
 }
