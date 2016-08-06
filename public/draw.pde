@@ -13,22 +13,22 @@ float BASE_BOTTOMDIFF = 10;
 float BASE_HEIGHT = 80;
 
 Building myTaipei101;
-
 float angle = 0;
 
 void setup() {
   size(500,500);
+  background(240);
   myTaipei101 = new Building(color(0), 440, 180);
+  myTaipei101.drawBuilding();
   myFerrisWheel = new FerrisWheel(color(0), 250, 250, 50, 14);
+  myFerrisWheel.drawFerrisWheel();
   frameRate(3);
 }
 
 void draw() {
-  background(240);
-  myFerrisWheel.drawFerrisWheel();
+  setup();
   myFerrisWheel.spinFerrisWheel();
-  myTaipei101.drawBuilding();
-  angle += PI/12; // makes the wheel spin
+  angle += PI/12;
 }
 
 // Building class to draw the full Taipei 101
@@ -47,6 +47,8 @@ class Building {
   }
 
   void drawBuilding(){
+    noStroke();
+    fill(c);
     float difference = 0;
     for (int i = 0; i < 8; i++) {
       tiers[i] = new Tier(c, xpos, ypos + difference, TIER_TOPWIDTH, TIER_BOTTOMDIFF, TIER_HEIGHT);
@@ -85,7 +87,6 @@ class Top {
   }
 
   void drawTop() {
-    noStroke();
     triangle(xpos, ypos, xpos + bottomdiff, ypos + height, xpos - bottomdiff, ypos + height);
     smallTier = new Tier(c, xpos - (2*bottomdiff), ypos + height, tier_topwidth, bottomdiff, tier_height);
     smallTier.drawTier();
@@ -116,8 +117,6 @@ class Tier {
   }
 
   void drawTier() {
-    noStroke();
-    fill(c);
     quad(xpos, ypos, xpos + topwidth, ypos, xpos + (topwidth - bottomdiff), ypos + height, xpos + bottomdiff, ypos + height);
   }
 }
@@ -141,8 +140,6 @@ class Base {
   }
 
   void drawBase() {
-    noStroke();
-    fill(c);
     quad(xpos, ypos, xpos + topwidth, ypos, xpos + topwidth + bottomdiff, ypos + height, xpos - bottomdiff, ypos + height);
   }
 }
@@ -166,8 +163,9 @@ class FerrisWheel {
 
   void drawFerrisWheel() {
     //fill(240);
-    //noFill(); // this is so that the inside of the circle will match the background
+    noFill(); // this is so that the inside of the circle will match the background
     ellipse(xpos, ypos, 2*radius, 2*radius);
+    /*
     pushMatrix();
     translate(xpos, ypos);
     line(0, 0, 0, radius);
@@ -189,6 +187,7 @@ class FerrisWheel {
     line(0, 0, -radius, 0);
     rect(-(radius + (boxheight/2)), 0, boxheight, boxheight);
     popMatrix();
+    */
   }
 
   void spinFerrisWheel() {
