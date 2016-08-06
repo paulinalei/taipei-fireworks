@@ -25,10 +25,10 @@ void setup() {
 
 void draw() {
   background(240);
-  angle += PI/12; // makes the wheel spin
   myFerrisWheel.drawFerrisWheel();
+  myFerrisWheel.spinFerrisWheel();
   myTaipei101.drawBuilding();
-
+  angle += PI/12; // makes the wheel spin
 }
 
 // Building class to draw the full Taipei 101
@@ -165,9 +165,35 @@ class FerrisWheel {
   }
 
   void drawFerrisWheel() {
-    noFill(); // this is so that the inside of the circle will match the background
+    //fill(240);
+    //noFill(); // this is so that the inside of the circle will match the background
     ellipse(xpos, ypos, 2*radius, 2*radius);
+    pushMatrix();
+    translate(xpos, ypos);
+    line(0, 0, 0, radius);
+    rectMode(CENTER);
+    rect(0, radius + (boxheight/2), boxheight, boxheight);
+    line(0, 0, 0, -radius);
+    rect(0, -(radius + (boxheight/2)), boxheight, boxheight);
+    line(0, 0, radius, 0);
+    rect(radius + (boxheight/2), 0, boxheight, boxheight);
+    line(0, 0, -radius, 0);
+    rect(-(radius + (boxheight/2)), 0, boxheight, boxheight);
+    rotate(PI/4)
+    line(0, 0, 0, radius);
+    rect(0, radius + (boxheight/2), boxheight, boxheight);
+    line(0, 0, 0, -radius);
+    rect(0, -(radius + (boxheight/2)), boxheight, boxheight);
+    line(0, 0, radius, 0);
+    rect(radius + (boxheight/2), 0, boxheight, boxheight);
+    line(0, 0, -radius, 0);
+    rect(-(radius + (boxheight/2)), 0, boxheight, boxheight);
+    popMatrix();
+  }
+
+  void spinFerrisWheel() {
     //angle += PI/12; // makes the wheel spin
+
     pushMatrix();
     translate(xpos, ypos);
     rotate(PI/2 + angle);
