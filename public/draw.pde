@@ -14,16 +14,21 @@ float BASE_HEIGHT = 80;
 
 Building myTaipei101;
 
+float angle = 0;
+
 void setup() {
   size(500,500);
   myTaipei101 = new Building(color(0), 440, 180);
+  myFerrisWheel = new FerrisWheel(color(0), 250, 250, 50, 14);
   frameRate(3);
 }
 
-float angle = 0;
 void draw() {
-  background(230);
+  background(240);
+  angle += PI/12; // makes the wheel spin
+  myFerrisWheel.drawFerrisWheel();
   myTaipei101.drawBuilding();
+
 }
 
 // Building class to draw the full Taipei 101
@@ -139,5 +144,51 @@ class Base {
     noStroke();
     fill(c);
     quad(xpos, ypos, xpos + topwidth, ypos, xpos + topwidth + bottomdiff, ypos + height, xpos - bottomdiff, ypos + height);
+  }
+}
+
+class FerrisWheel {
+  color c;
+  float xpos;
+  float ypos;
+  float radius;
+  float boxheight;
+
+  FerrisWheel(color m_c, float m_x, float m_y, float m_r, float m_boxheight){
+    c = m_c;
+    xpos = m_x;
+    ypos = m_y;
+    radius = m_r;
+    boxheight = m_boxheight;
+    stroke(c);
+    strokeWeight(3);
+  }
+
+  void drawFerrisWheel() {
+    noFill(); // this is so that the inside of the circle will match the background
+    ellipse(xpos, ypos, 2*radius, 2*radius);
+    //angle += PI/12; // makes the wheel spin
+    pushMatrix();
+    translate(xpos, ypos);
+    rotate(PI/2 + angle);
+    line(0, 0, 0, radius);
+    rectMode(CENTER);
+    rect(0, radius + (boxheight/2), boxheight, boxheight);
+    line(0, 0, 0, -radius);
+    rect(0, -(radius + (boxheight/2)), boxheight, boxheight);
+    line(0, 0, radius, 0);
+    rect(radius + (boxheight/2), 0, boxheight, boxheight);
+    line(0, 0, -radius, 0);
+    rect(-(radius + (boxheight/2)), 0, boxheight, boxheight);
+    rotate(PI/4)
+    line(0, 0, 0, radius);
+    rect(0, radius + (boxheight/2), boxheight, boxheight);
+    line(0, 0, 0, -radius);
+    rect(0, -(radius + (boxheight/2)), boxheight, boxheight);
+    line(0, 0, radius, 0);
+    rect(radius + (boxheight/2), 0, boxheight, boxheight);
+    line(0, 0, -radius, 0);
+    rect(-(radius + (boxheight/2)), 0, boxheight, boxheight);
+    popMatrix();
   }
 }
