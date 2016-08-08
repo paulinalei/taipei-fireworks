@@ -126,7 +126,7 @@ class Top {
 class Tier {
   float xpos;
   float ypos;
-  float topwidth; 
+  float topwidth;
   float bottomdiff;
   float height;
 
@@ -224,4 +224,8 @@ class FerrisWheel {
     rect(-(radius + (boxheight/2)), 0, boxheight, boxheight);
     popMatrix();
   }
+}
+
+void mousePressed() {
+  ellipse(mouseX, mouseY, 50, 50);
 }
