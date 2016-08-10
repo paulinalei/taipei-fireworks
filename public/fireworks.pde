@@ -3,5 +3,9 @@ void setup() {
 }
 
 void draw() {
+
+}
+
+void mousePressed() {
   ellipse(250, 250, 50, 50);
 }
