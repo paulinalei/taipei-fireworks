@@ -1,13 +1,20 @@
+int frame = 0;
 void setup() {
   size(500, 500);
 }
 
 void draw() {
-
+  if (frame > 20) {
+    background(204); // to light gray and draw lines
+  } else {
+    if (mousePressed == true) {
+      x = mouseX;
+      y = mouseY;
+      ellipse(x, y, 50, 50);
+      frame++;
+    }
+  }
 }
 
 void mousePressed() {
-  ellipse(250, 250, 50, 50);
-  ellipse(250, 200, 50, 50);
-  ellipse(200, 250, 50, 50);
 }
