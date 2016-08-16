@@ -227,5 +227,9 @@ class FerrisWheel {
 }
 
 void mousePressed() {
-  ellipse(mouseX, mouseY, 50, 50);
+  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(mouseX + 15, mouseY, 5, 5);
+  ellipse(mouseX, mouseY + 15, 5, 5);
+  ellipse(mouseX -15, mouseY, 5, 5);
+  ellipse(mouseX, mouseY - 15, 5, 5);
 }
