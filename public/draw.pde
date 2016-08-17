@@ -14,6 +14,7 @@ float BASE_HEIGHT = 80;
 
 Building myTaipei101;
 float angle = 0; // global used to make the ferris wheel spin
+Firework myFirework;
 
 // Processing says this function is called once
 void setup() {
@@ -22,7 +23,7 @@ void setup() {
   myTaipei101 = new Building(color(0), 440, 180);
   myTaipei101.drawBuilding();
   myFerrisWheel = new FerrisWheel(color(0), 250, 400, 50, 14);
-
+  myFirework = new Firework(mouseX, mouseY);
   frameRate(3); // displays frames and animates ferris wheel
 }
 
@@ -227,9 +228,49 @@ class FerrisWheel {
 }
 
 void mousePressed() {
+
+  /*
   ellipse(mouseX, mouseY, 10, 10);
   ellipse(mouseX + 15, mouseY, 5, 5);
   ellipse(mouseX, mouseY + 15, 5, 5);
   ellipse(mouseX -15, mouseY, 5, 5);
   ellipse(mouseX, mouseY - 15, 5, 5);
+  pushMatrix();
+  translate(mouseX, mouseY);
+  rotate(radians(45));
+  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(mouseX + 15, mouseY, 5, 5);
+  ellipse(mouseX, mouseY + 15, 5, 5);
+  ellipse(mouseX -15, mouseY, 5, 5);
+  ellipse(mouseX, mouseY - 15, 5, 5);
+  popMatrix();
+  */
+  myFirework.drawFirework();
+}
+
+class Firework {
+  float xpos;
+  float ypos;
+
+  Firework(float m_x, float m_y) {
+    xpos = m_x;
+    ypos = m_y;
+  }
+
+  void drawFirework() {
+    ellipse(xpos, ypos, 10, 10);
+    ellipse(xpos + 15, ypos, 5, 5);
+    ellipse(xpos, ypos + 15, 5, 5);
+    ellipse(xpos -15, ypos, 5, 5);
+    ellipse(xpos, ypos - 15, 5, 5);
+    pushMatrix();
+    translate(xpos, ypos);
+    rotate(radians(45));
+    ellipse(xpos, ypos, 10, 10);
+    ellipse(xpos + 15, ypos, 5, 5);
+    ellipse(xpos, ypos + 15, 5, 5);
+    ellipse(xpos -15, ypos, 5, 5);
+    ellipse(xpos, ypos - 15, 5, 5);
+    popMatrix();
+  }
 }
