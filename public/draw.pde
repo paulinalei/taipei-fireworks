@@ -228,23 +228,6 @@ class FerrisWheel {
 }
 
 void mousePressed() {
-
-  /*
-  ellipse(mouseX, mouseY, 10, 10);
-  ellipse(mouseX + 15, mouseY, 5, 5);
-  ellipse(mouseX, mouseY + 15, 5, 5);
-  ellipse(mouseX -15, mouseY, 5, 5);
-  ellipse(mouseX, mouseY - 15, 5, 5);
-  pushMatrix();
-  translate(mouseX, mouseY);
-  rotate(radians(45));
-  ellipse(mouseX, mouseY, 10, 10);
-  ellipse(mouseX + 15, mouseY, 5, 5);
-  ellipse(mouseX, mouseY + 15, 5, 5);
-  ellipse(mouseX -15, mouseY, 5, 5);
-  ellipse(mouseX, mouseY - 15, 5, 5);
-  popMatrix();
-  */
   myFirework.drawFirework();
 }
 
@@ -257,20 +240,41 @@ class Firework {
     ypos = m_y;
   }
 
+  // TODO: make it so that it changes size randomly
   void drawFirework() {
-    ellipse(xpos, ypos, 10, 10);
-    ellipse(xpos + 15, ypos, 5, 5);
-    ellipse(xpos, ypos + 15, 5, 5);
-    ellipse(xpos -15, ypos, 5, 5);
-    ellipse(xpos, ypos - 15, 5, 5);
+    strokeWeight(1); // do i want this as a parameter?
+    stroke(255, 0, 0); // make it so it cycles through rainbow colors
+
+    line(xpos - 15, ypos, xpos - 50, ypos);
+    line(xpos, ypos - 15, xpos, ypos - 50);
+    line(xpos + 15, ypos, xpos + 50, ypos);
+    line(xpos, ypos + 15, xpos, ypos + 50);
+
     pushMatrix();
     translate(xpos, ypos);
-    rotate(radians(45));
-    ellipse(xpos, ypos, 10, 10);
-    ellipse(xpos + 15, ypos, 5, 5);
-    ellipse(xpos, ypos + 15, 5, 5);
-    ellipse(xpos - 15, ypos, 5, 5);
-    ellipse(xpos, ypos - 15, 5, 5);
+    rotate(PI/4);
+    line(0, 0 + 10, 0, 50);
+    line(0 + 10, 0, 50, 0);
+    line(0 - 10, 0, -50, 0);
+    line(0, 0 - 10, 0, -50);
+    popMatrix();
+
+    pushMatrix()
+    translate(xpos, ypos);
+    rotate(PI/8);
+    line(0, 0 + 30, 0, 50);
+    line(0 + 30, 0, 50, 0);
+    line(0 - 30, 0, -50, 0);
+    line(0, 0 - 30, 0, -50);
+    popMatrix();
+
+    pushMatrix()
+    translate(xpos, ypos);
+    rotate(-PI/8);
+    line(0, 0 + 30, 0, 50);
+    line(0 + 30, 0, 50, 0);
+    line(0 - 30, 0, -50, 0);
+    line(0, 0 - 30, 0, -50);
     popMatrix();
   }
 }
