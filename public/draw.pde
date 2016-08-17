@@ -269,7 +269,7 @@ class Firework {
     ellipse(xpos, ypos, 10, 10);
     ellipse(xpos + 15, ypos, 5, 5);
     ellipse(xpos, ypos + 15, 5, 5);
-    ellipse(xpos -15, ypos, 5, 5);
+    ellipse(xpos - 15, ypos, 5, 5);
     ellipse(xpos, ypos - 15, 5, 5);
     popMatrix();
   }
