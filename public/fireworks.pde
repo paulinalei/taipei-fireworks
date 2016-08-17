@@ -8,13 +8,13 @@ void draw() {
 }
 
 void mousePressed() {
-line(250 - 15, 250, 200, 250);
-line(250, 250 - 15, 250, 200);
-line(250 + 15, 250, 300, 250);
-line(250, 250 + 15, 250, 300);
+line(mouseX - 15, mouseY, mouseX - 50, mouseY);
+line(mouseX, mouseY - 15, mouseX, mouseY - 50);
+line(mouseX + 15, mouseY, mouseX + 50, mouseY);
+line(mouseX, mouseY + 15, mouseX, mouseY + 50);
 
 pushMatrix();
-translate(250, 250);
+translate(mouseX, mouseY);
 rotate(PI/4);
 line(0, 0 + 10, 0, 50);
 line(0 + 10, 0, 50, 0);
@@ -23,7 +23,7 @@ line(0, 0 - 10, 0, -50);
 popMatrix();
 
 pushMatrix()
-translate(250, 250);
+translate(mouseX, mouseY);
 rotate(PI/8);
 line(0, 0 + 30, 0, 50);
 line(0 + 30, 0, 50, 0);
@@ -32,7 +32,7 @@ line(0, 0 - 30, 0, -50);
 popMatrix();
 
 pushMatrix()
-translate(250, 250);
+translate(mouseX, mouseY);
 rotate(-PI/8);
 line(0, 0 + 30, 0, 50);
 line(0 + 30, 0, 50, 0);
