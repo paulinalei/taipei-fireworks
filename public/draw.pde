@@ -15,6 +15,7 @@ float BASE_HEIGHT = 80;
 Building myTaipei101;
 float angle = 0; // global used to make the ferris wheel spin
 Firework myFirework;
+float colordegrees = 0;
 
 // Processing says this function is called once
 void setup() {
@@ -33,6 +34,7 @@ void draw() {
   myFerrisWheel.drawFerrisWheel();
   myFerrisWheel.spinFerrisWheel();
   angle += PI/12;
+  colordegrees += 1;
 }
 
 /* Building class to draw the full Taipei 101
@@ -243,7 +245,7 @@ class Firework {
   // TODO: make it so that it changes size randomly
   void drawFirework() {
     strokeWeight(1); // do i want this as a parameter?
-    stroke(255, 0, 0); // make it so it cycles through rainbow colors
+    stroke(((255 + colordegrees) % 255), 0, 0); // make it so it cycles through rainbow colors
 
     line(xpos - 15, ypos, xpos - 50, ypos);
     line(xpos, ypos - 15, xpos, ypos - 50);
