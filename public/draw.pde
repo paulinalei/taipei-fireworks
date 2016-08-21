@@ -230,6 +230,7 @@ class FerrisWheel {
 }
 
 void mousePressed() {
+  colordegrees += 1;
   myFirework.drawFirework();
 }
 
