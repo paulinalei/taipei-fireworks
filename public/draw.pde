@@ -246,7 +246,15 @@ class Firework {
   // TODO: make it so that it changes size randomly
   void drawFirework() {
     strokeWeight(1); // do i want this as a parameter?
-    stroke(255, 0, 0); // make it so it cycles through rainbow colors
+    if (colordegrees % 6 == 0) {
+      stroke(255, 0, 0);
+    }
+    else if (colordegrees % 6 == 1) {
+      stroke(0, 255, 0);
+    }
+    else if (colordegrees % 6 == 2) {
+      stroke(0, 0, 255);
+    }
 
     line(xpos - 15, ypos, xpos - 50, ypos);
     line(xpos, ypos - 15, xpos, ypos - 50);
