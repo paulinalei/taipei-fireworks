@@ -254,6 +254,8 @@ class Firework {
     }
     else if (colordegrees % 6 == 2) {
       stroke(0, 0, 255);
+    } else if (colordegrees % 6 == 3) {
+      stroke(255, 255, 0);
     }
 
     line(xpos - 15, ypos, xpos - 50, ypos);
