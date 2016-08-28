@@ -1,6 +1,6 @@
 html,
 body {
-    margin: 0;
+    margin: auto;
     overflow: hidden;
     height: 100%;
 }
@@ -11,6 +11,13 @@ body {
   display: block;
 }
 
+h1 {
+  margin: auto;
+  text-align: center;
+}
+
 p {
   color: black;
+  margin: auto;
+  text-align: center;
 }
