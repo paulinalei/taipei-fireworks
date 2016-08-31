@@ -1,6 +1,8 @@
 # taipei-fireworks
 Trying out Node.js, Express.js, Jade, Processing.js, and animations.
 
+Most of the code for the project is in the directory public/draw.pde.
+
 ## Running the project
 * git clone (repository url)
 * Install Node.js

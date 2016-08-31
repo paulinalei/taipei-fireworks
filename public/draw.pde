@@ -201,6 +201,10 @@ class FerrisWheel {
   void drawFerrisWheel() {
     noFill(); // this is so that the inside of the circle will match the background
     ellipse(xpos, ypos, 2*radius, 2*radius);
+    strokeWeight(5);
+    line(xpos, ypos, xpos - 30, ypos + (7*boxheight));
+    line(xpos, ypos, xpos + 30, ypos + (7*boxheight));
+    strokeWeight(3);
   }
 
   void spinFerrisWheel() {
