@@ -24,11 +24,17 @@ void setup() {
   // Add buildings before drawing Taipei 101 and Ferris Wheel to prevent them from being blocked
   noStroke();
   fill(50);
-  rect(250, 450, 50, 150);
+  rect(250, 490, 30, 150);
   fill(30);
-  rect(300, 400, 70, 250);
+  rect(280, 600, 45, 250);
+  fill(40);
+  rect(345, 450, 50, 150);
   fill(60);
-  rect(365, 475, 65, 125);
+  rect(325, 475, 20, 125);
+  fill(70);
+  rect(400, 465, 40, 125);
+  fill(50);
+  rect(425, 480, 20, 125);
 
 
   myTaipei101 = new Building(color(0), 440, 180);
