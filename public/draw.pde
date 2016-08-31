@@ -21,6 +21,10 @@ float colordegrees = 0;
 void setup() {
   size(500,500);
   background(240);
+  // Add buildings before drawing Taipei 101 and Ferris Wheel to prevent them from being blocked
+  noStroke();
+  fill(200);
+  rect(250, 450, 50, 150);
   myTaipei101 = new Building(color(0), 440, 180);
   myTaipei101.drawBuilding();
   myFerrisWheel = new FerrisWheel(color(0), 250, 400, 50, 14);
