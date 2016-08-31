@@ -20,11 +20,17 @@ float colordegrees = 0;
 // Processing says this function is called once
 void setup() {
   size(500,500);
-  background(240);
+  background(0, 0, 180);
   // Add buildings before drawing Taipei 101 and Ferris Wheel to prevent them from being blocked
   noStroke();
-  fill(200);
+  fill(50);
   rect(250, 450, 50, 150);
+  fill(30);
+  rect(300, 400, 70, 250);
+  fill(60);
+  rect(365, 475, 65, 125);
+
+
   myTaipei101 = new Building(color(0), 440, 180);
   myTaipei101.drawBuilding();
   myFerrisWheel = new FerrisWheel(color(0), 250, 400, 50, 14);
