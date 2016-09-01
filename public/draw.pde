@@ -21,8 +21,23 @@ float colordegrees = 0;
 void setup() {
   size(500,500);
   background(0, 0, 180);
+
   // Add buildings before drawing Taipei 101 and Ferris Wheel to prevent them from being blocked
   noStroke();
+  fill(50);
+  rect(40, 500, 70, 150);
+  fill(60);
+  rect(0, 490, 50, 150);
+  fill(70);
+  rect(80, 480, 30, 150);
+
+  fill(65);
+  rect(120, 500, 40, 150);
+  fill(35);
+  rect(150, 485, 30, 150);
+  fill(50);
+  rect(190, 530, 40, 150);
+
   fill(50);
   rect(250, 490, 30, 150);
   fill(30);
@@ -35,7 +50,6 @@ void setup() {
   rect(400, 465, 40, 125);
   fill(50);
   rect(425, 480, 20, 125);
-
 
   myTaipei101 = new Building(color(0), 440, 180);
   myTaipei101.drawBuilding();
@@ -263,7 +277,6 @@ class Firework {
     ypos = m_y;
   }
 
-  // TODO: make it so that it changes size randomly?
   void drawFirework() {
     strokeWeight(2); // do i want this as a parameter?
     if (colordegrees % 6 == 0) {
@@ -318,3 +331,7 @@ class Firework {
     popMatrix();
   }
 }
+
+// POSSIBLE FUTURE UPDATES:
+// 1. change firework size randomly
+// 2. add cars
